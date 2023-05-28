@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/img/oiram_kart.png" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/cirrus-all.min.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <title>Oiram</title>
+    <script src="/assets/js/matter.js"></script>
+</head>
+<body>
+    <main class="u-flex u-items-center u-justify-center u-text-center">
+        <div class="col-6 bg-indigo-700 text-white p-4">
+            <h1 class="mb-0">SCAN CARD TO PLAY</h1>
+            <div id="logs-div" class="uppercase">
+                <p class="mt-4"><span class="default-font">◕‿◕</span><br>Connecting to server<br>...</p>
+            </div>
+            <div id="freeplay-div" class="uppercase" style="display: none;">
+                <p class="mt-4 text-warning">(Free play, press a button to play)</p>
+            </div>
+            <!-- <button id="btn_start">START</button> -->
+        </div>
+    </main>
+    <div id="game" class="u-flex u-items-center u-justify-center u-text-center u-flex-column">
+        <img src="assets/img/snesplain.png" id="overlay">
+        <div id="player">
+            <img id="player-sprite" class="to-top">
+            <!-- https://www.mariomayhem.com/downloads/sprites/mario_kart_super_circuit_sprites.php -->
+        </div>
+        <p id="timer"><span id="msg-timer"></span> <span id="msg-end" style="display: none;">ECTF{O1r4m_K4r7_Ea5t3r_3gg}</span></p>
+    </div>
+    <script src="/assets/js/game.js"></script>
+    <script>
+        const listening_msg = '<p class="mt-4"><span class="default-font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(＿ ＿*) Z z z</span><br>Listening for card<br>...<br>&nbsp;</p>'
+        // Create WebSocket connection.
+        let socket = null
+        let timeout_start = null
+        let timeout_infos = null
+        try {
+            socket = new WebSocket('ws://localhost:8768');
+        } catch (error) {
+            document.getElementById("logs-div").innerHTML = '<p class="mt-4"><span class="default-font">(◕‿◕*)</span><br><span class="bg-red-700">Connexion to server failed</span></p>'
+            throw new Error("Connexion failed");
+        }
+
+        // Connection opened
+        socket.addEventListener('open', (event) => {
+            console.log("Connected")
+            document.getElementById("logs-div").innerHTML = listening_msg
+            setInterval(() => {
+                socket.send("get_card")
+            }, 600);
+            return;
+        });
+
+        // Listen for messages
+        socket.addEventListener('message', (event) => {
+            infos = JSON.parse(event.data)
+            console.log(infos)
+            clearTimeout(timeout_start)
+            clearTimeout(timeout_infos)
+            if(infos.coins >= 100)
+            {
+                template = '<p class="mt-4"><span class="default-font">(◕‿◕*)</span><br>>Card: ' + infos.card + '<br><span class="bg-green-500">>Coins: ' + infos.coins + '</span><br>Starting game!</p>'
+
+                timeout_start = setTimeout(() => {
+                    console.log(game_running)
+                    if(!game_running) {
+                        game_running = true
+                        start_game();
+                    }
+                }, 3000)
+            }
+            else
+            {
+                template = '<p class="mt-4"><span class="default-font">(◕‿◕*)</span><br>>Card: ' + infos.card + '<br><span class="bg-red-700">>Coins: ' + infos.coins + '</span><br>You need 100 coins!</p>'
+            }
+
+            document.getElementById("logs-div").innerHTML = template
+
+            timeout_infos = setTimeout(() => {
+                document.getElementById("logs-div").innerHTML = listening_msg
+            }, 5000)
+        });
+
+        if(free_play) {
+            document.getElementById("freeplay-div").style.display = "block"
+        }
+
+        document.addEventListener("keydown", menu_click_listener)
+    </script>
+</body>
+</html>

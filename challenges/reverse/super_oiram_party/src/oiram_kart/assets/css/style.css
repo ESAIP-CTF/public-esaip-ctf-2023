@@ -1,0 +1,115 @@
+* {
+    font-family: 'Press Start 2P', cursive !important;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #141414;
+    overflow: hidden;
+    position: absolute;
+    transition-duration: 1s;
+    top: 0;
+    cursor: none;
+}
+
+main {
+    min-height: 100vh;
+}
+
+.default-font {
+    font-family: monospace !important;
+    font-weight: 700;
+}
+
+img {
+    image-rendering: pixelated;
+    max-width: initial !important;
+}
+
+#overlay {
+    position: absolute;
+    width: 1135px;
+    transform: translate(0px, 8px);
+}
+
+#timer {
+    position: absolute;
+    color: white;
+    font-size: 2.8em;
+    transform: translate(0px, -330px);
+}
+
+#msg-end {
+    font-size: 22px;
+    vertical-align: super;
+}
+
+#game {
+    min-height: 100vh;
+    transform: translate(0px, 20px);
+}
+
+#map {
+    position: absolute;
+    overflow: hidden;
+    transform: scale(2);
+    width: 600px;
+    height: 500px;
+    opacity: 0.5;
+}
+
+#player, #bot1 {
+    position: absolute;
+    overflow: hidden;
+    width: 49px;
+    height: 47px;
+    transform: translate(0px, -10px) scale(2);
+}
+
+#player-sprite::after {
+    content: "efbhverzdfjbghezefibfghrjzofhb";
+}
+
+.to-top {
+    margin-top: -50px;
+    margin-left: -294px;
+}
+
+.to-bottom {
+    margin-top: -49px;
+    margin-left: 6px;
+}
+
+.to-left {
+    margin-top: -50px;
+    margin-left: -94px;
+}
+
+.to-right {
+    margin-top: -50px;
+    margin-left: -296px;
+    transform: scaleX(-1);
+}
+
+.to-top-left {
+    margin-top: -100px;
+    margin-left: -244px;
+}
+
+.to-top-right {
+    margin-top: -100px;
+    margin-left: -144px;
+    transform: scaleX(-1);
+}
+
+.to-bottom-left {
+    margin-top: -49px;
+    margin-left: -46px;
+}
+
+.to-bottom-right {
+    margin-top: -49px;
+    margin-left: -343px;
+    transform: scaleX(-1);
+}

@@ -1,0 +1,4 @@
+#!/bin/bash
+MUSIC="sound"
+BITRATE=48k
+find "${MUSIC}" -name "*.mp3" -exec echo "{}" \; -exec ffmpeg -y -loglevel "error" -i "{}" -acodec libvorbis -ab $BITRATE "$(basename '{}' mp3).ogg" \; -exec rm {} \;

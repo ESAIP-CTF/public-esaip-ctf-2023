@@ -6,3 +6,6 @@ xor 0x4c, 0x74 = "8"
 xor 0x4c, 0x7f = "3"
 
 result: 1983
+
+flag: ECTF{1983}
+
