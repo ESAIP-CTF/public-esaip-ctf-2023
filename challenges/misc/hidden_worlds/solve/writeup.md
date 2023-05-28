@@ -1,0 +1,1 @@
+Use a Stereogram solver like : `https://piellardj.github.io/stereogram-solver/`

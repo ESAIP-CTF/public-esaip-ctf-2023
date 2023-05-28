@@ -1,0 +1,21 @@
+Bloc 1 :
+	- Modifier le flag du premier chall dans le fichier "readme"
+	- Modifier le flag du deuxième chall depuis le fichier "meetingplace.psd" => meetingplace_original.jpg
+	- Créer une version corrompue de l'image "meetingplace_original.jpg" => mettre les 12 premiers octets en "FF" (hexeditor) => meetingplace.jpg
+	- Créer une archive .zip avec le mot de passe clair ('clear') du fichier "../bloc2/zip_pass" => "itsmemario.jpg" + "meetingplace.jpg" + "readme" -> youfoundme.zip
+	
+Bloc 2 :
+	- Concaténer l'archive "../bloc1/youfoundme.zip" et l'image "notsuspicious.jpeg_original" (cat notsuspicious.jpeg_original ../bloc1/youfoundme.zip > notsuspicious.jpeg) => notsuspicious.jpeg
+	- Ajouter le mot de passe encodé ('enc') du fichier "zip_pass" aux exif de l'image "notsuspicious.jpeg" (exiftool -artist="pass:tzrfdrizf" notsuspicious.jpeg)
+	- Copier l'image "notsuspicious.jpeg" dans le dossier "random_files"
+
+Bloc 3 (Nécessite deux machines dans le même réseau) :
+	Info : M1 = Bowser Jr. / M2 = Wario
+	(- Configurer le fichier /etc/hosts de la machine qui va partager le dossier "../bloc2/random_files"
+		my_ip BowserJr
+		other_ip Wario)
+	- Ouvrir un serveur Python sur la M1 dans le dossier "../bloc2/random_files" (python3 -m http.server)
+	- Se rendre à l'adresse du serveur depuis la M2
+	- Démarrer une capture Wireshark sur la M1
+	- Ouvrir les images du serveur depuis la M2 (ne pas oublier de cliquer sur l'image "notsuspicious.jpeg")
+	- Stopper et enregistrer la capture Wireshark sur la M1 => "exchange_bowserjr_wario.pcapng"

@@ -1,0 +1,15 @@
+Chiffrage avec livre :
+- Choisir le flag
+- Choisir le type de chiffrement (line:word:char)
+    - On considère une page d'un livre Minecraft comme une ligne car une page d'un livre ne peux pas afficher beaucoup de mots.
+- Encoder le flag en créant les instructions nécessaires (1:2:3)
+- Tester le déchiffrement : https://www.boxentriq.com/code-breaking/book-cipher
+
+Insertion message chiffré dans une map Minecraft :
+- Ecrire dans 2 livres (créer les pages puis remplir avec NBTExplorer) :
+    - Le texte du livre permettant de chiffrer (une ligne par page)
+    - Les instructions à la ligne (ne pas surcharger les pages : 14 lignes max)
+- Placer les 2 livres sur la carte (proches du point de spawn)
+    - Set le point de spawn : /setworldspawn
+    - Utiliser des pupitres
+    - Placer une balise à côté des livres pour qu'ils soient visibles

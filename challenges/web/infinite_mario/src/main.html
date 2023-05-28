@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Infinite Mario</title>
+        <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	</head>
+	<body style="background-color: black;">
+		<canvas id="canvas" style="width:100%; height:100%; position:fixed; left:0; top:0; display: block; margin: auto;">
+			<p>Your browser does not support the canvas element.</p>
+		</canvas>
+
+        <!-- Enjine Includes -->
+        <script src="/static/Enjine/core.js"></script>
+        <script src="/static/Enjine/gameCanvas.js"></script>
+        <script src="/static/Enjine/keyboardInput.js"></script>
+        <script src="/static/Enjine/resources.js"></script>
+        <script src="/static/Enjine/drawable.js"></script>
+        <script src="/static/Enjine/state.js"></script>
+        <script src="/static/Enjine/gameTimer.js"></script>
+        <script src="/static/Enjine/camera.js"></script>
+        <script src="/static/Enjine/drawableManager.js"></script>
+        <script src="/static/Enjine/sprite.js"></script>
+        <script src="/static/Enjine/spriteFont.js"></script>
+        <script src="/static/Enjine/frameSprite.js"></script>
+        <script src="/static/Enjine/animatedSprite.js"></script>
+        <script src="/static/Enjine/collideable.js"></script>
+        <script src="/static/Enjine/application.js"></script>
+
+        <!-- Actual game code -->
+        <script src="/static/code/setup.js"></script>
+        <script src="/static/code/spriteCuts.js"></script>
+        <script src="/static/code/level.js"></script>
+        <script src="/static/code/backgroundGenerator.js"></script>
+        <script src="/static/code/backgroundRenderer.js"></script>
+        <script src="/static/code/improvedNoise.js"></script>
+        <script src="/static/code/notchSprite.js"></script>
+        <script src="/static/code/character.js"></script>
+        <script src="/static/code/levelRenderer.js"></script>
+        <script src="/static/code/levelGenerator.js"></script>
+        <script src="/static/code/spriteTemplate.js"></script>
+        <script src="/static/code/enemy.js"></script>
+        <script src="/static/code/fireball.js"></script>
+        <script src="/static/code/sparkle.js"></script>
+        <script src="/static/code/coinAnim.js"></script>
+        <script src="/static/code/mushroom.js"></script>
+		<script src="/static/code/particle.js"></script>
+		<script src="/static/code/fireFlower.js"></script>
+        <script src="/static/code/bulletBill.js"></script>
+        <script src="/static/code/flowerEnemy.js"></script>
+        <script src="/static/code/shell.js"></script>
+
+        <script src="/static/code/titleState.js"></script>
+        <script src="/static/code/loadingState.js"></script>
+        <script src="/static/code/loseState.js"></script>
+        <script src="/static/code/winState.js"></script>
+        <script src="/static/code/mapState.js"></script>
+        <script src="/static/code/levelState.js"></script>
+
+        <script src="/static/code/music.js"></script>
+
+        <script>$(document).ready(function() { new Enjine.Application().Initialize(new Mario.LoadingState(), 320, 240) });</script>
+	</body>
+</html>

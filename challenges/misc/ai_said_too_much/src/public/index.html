@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Modern Mario Toilet</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="/"><img src="assets/img/logo.png" alt="Your Logo" height="60"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="login">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <h1 class="masthead-heading mb-0">Introducing</h1>
+                    <h2 class="masthead-subheading mb-0">Modern Mario Toilets</h2>
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Our products</a>
+                </div>
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
+        </header>
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/01.jpg" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">For those who love stones...</h2>
+                            <p>This modern toilet is the first toilet we designed. They are made of carved stone and offer great comfort, for the pleasure of your little buttocks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content section 2-->
+        <section>
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/02.jpg" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <h2 class="display-4">For green lovers...</h2>
+                            <p>In partnership with Luigi, we have designed and created a perfect looking toilet, allowing you to deposit your poop at the bottom of a pipe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content section 3-->
+        <section>
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/03.jpg" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">For those who eat spicy food!</h2>
+                            <p>This toilet is the ultimate toilet where you can unload all your sins. Equipped with a dragon slave of Bowser, it is possible to receive a massage.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<div class="chatbox-container">
+          <div class="container py-1">
+            <div class="row d-flex justify-content-center">
+              <div>
+                <div class="card" id="chat2">
+                <div class="card-header d-flex justify-content-between align-items-center p-3" data-toggle="chat">
+                    <h5 class="mb-0 text-center w-100">Support</h5>
+                </div>
+
+                  <div class="card-body chatbox-content d-none bg-light" id="chatContent" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
+                    <div id="chatArea">
+                    </div>
+                  </div>
+                  <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3 chatbox-content d-none">
+                    <input type="text" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Type message">
+                    <a class="ms-3" href="#!" id="sendBtn"><i class="fas fa-paper-plane"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+		</div>
+		    <script>
+          let messageCounter = 0;
+          
+          document.addEventListener("DOMContentLoaded", async function() {
+              const chatHeader = document.querySelector('[data-toggle="chat"]');
+              chatHeader.style.cursor = 'pointer';
+              const chatContent = document.querySelectorAll('.chatbox-content');
+          
+              chatHeader.addEventListener("click", () => {
+                  chatContent.forEach(content => content.classList.toggle('d-none'));
+              });
+          
+              const inputElement = document.getElementById('exampleFormControlInput1');
+              const sendBtn = document.getElementById('sendBtn');
+              const chatArea = document.getElementById('chatArea');
+          
+              sendBtn.addEventListener('click', async function() {
+                  if (inputElement.value.trim() !== '') {
+                      const userMessage = inputElement.value;
+                      // Créez le conteneur du message et ses éléments
+                      const messageContainer = document.createElement('div');
+                      messageContainer.classList.add('d-flex', 'flex-row', 'justify-content-end', 'mb-4', 'user-message', 'message-' + messageCounter);
+          
+                      const messageContent = document.createElement('div');
+                      const messageText = document.createElement('p');
+                      messageText.classList.add('small', 'p-2', 'me-3', 'mb-1', 'text-white', 'rounded-3', 'bg-primary');
+                      messageText.textContent = inputElement.value;
+                      messageContent.appendChild(messageText);
+          
+                      const messageTime = document.createElement('p');
+                      messageTime.classList.add('small', 'me-3', 'mb-3', 'rounded-3', 'text-muted', 'd-flex', 'justify-content-end');
+                      const currentTime = new Date();
+                      messageTime.textContent = currentTime.getHours().toString().padStart(2, '0') + ':' + currentTime.getMinutes().toString().padStart(2, '0');
+                      messageContent.appendChild(messageTime);
+          
+                      const avatarImage = document.createElement('img');
+                      avatarImage.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp';
+                      avatarImage.alt = 'avatar 1';
+                      avatarImage.style.width = '45px';
+                      avatarImage.style.height = '100%';
+          
+                      // Ajoutez les éléments au conteneur du message
+                      messageContainer.appendChild(messageContent);
+                      messageContainer.appendChild(avatarImage);
+          
+                      // Ajoutez le conteneur du message à la zone de discussion
+                      chatArea.appendChild(messageContainer);
+                      messageCounter++;
+          
+                      // Videz l'entrée
+                      inputElement.value = '';
+          
+                      // Scrollbar en bas
+                      chatContent[0].scrollTop = chatContent[0].scrollHeight;
+          
+                      // Envoyer le message à l'IA et afficher la réponse
+                      const botResponse = await sendMessageToServer(userMessage);
+                      displayBotMessage(botResponse);
+                  }
+              });
+          });
+          
+          async function sendMessageToServer(message) {
+              try {
+                  const chatHistory = getChatHistory(); // Get the chat history
+          
+                  const requestBody = {
+                      message: message,
+                      messages: chatHistory.messages, // Include chat history in the request body
+                  };
+          
+                  const response = await fetch('/api/message', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(requestBody), // Send the updated request body
+                  });
+          
+                  if (response.ok) {
+                      const answer = await response.json();
+                      return answer.data;
+                  } else {
+                      throw new Error('Erreur lors de la communication avec le serveur');
+                  }
+              } catch (error) {
+                  console.error(error);
+                  return 'Erreur lors de la récupération de la réponse du serveur';
+              }
+          }
+          
+          
+          function displayBotMessage(message) {
+              const messageContainer = document.createElement('div');
+              messageContainer.classList.add('d-flex', 'flex-row', 'justify-content-start', 'mb-4', 'bot-message', 'message-' + messageCounter);
+          
+              const avatarImage = document.createElement('img');
+              avatarImage.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp';
+              avatarImage.alt = 'avatar bot';
+              avatarImage.style.width = '45px';
+              avatarImage.style.height = '100%';
+          
+              const messageContent = document.createElement('div');
+              const messageText = document.createElement('p');
+              messageText.classList.add('small', 'p-2', 'ms-3', 'mb-1', 'text-white', 'rounded-3', 'bg-primary');
+              messageText.textContent = message;
+              messageContent.appendChild(messageText);
+          
+              const messageTime = document.createElement('p');
+              messageTime.classList.add('small', 'ms-3', 'mb-3', 'rounded-3', 'text-muted', 'd-flex', 'justify-content-start');
+              const currentTime = new Date();
+              messageTime.textContent = currentTime.getHours().toString().padStart(2, '0') + ':' + currentTime.getMinutes().toString().padStart(2, '0');
+              messageContent.appendChild(messageTime);
+          
+              messageContainer.appendChild(avatarImage);
+              messageContainer.appendChild(messageContent);
+          
+              chatArea.appendChild(messageContainer);
+              messageCounter++;
+              chatContent.scrollTop = chatContent.scrollHeight;
+          }
+          
+          function getChatHistory() {
+              const chatArea = document.getElementById("chatArea");
+              const messageContainers = chatArea.querySelectorAll(".user-message, .bot-message");
+              const messages = [];
+          
+              messageContainers.forEach((messageContainer, index) => {
+                  const sender = messageContainer.classList.contains("user-message") ? "user" : "bot";
+                  const messageText = messageContainer.querySelector("p.small").textContent;
+          
+                  const message = {
+                      id: index.toString(),
+                      sender: sender,
+                      message: messageText,
+                  };
+          
+                  messages.push(message);
+              });
+          
+              return {
+                  messages: messages
+              };
+          }
+        </script>
+
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Modern Mario Toilets</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

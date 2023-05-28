@@ -1,0 +1,8 @@
+SSS --> Shamir Secret Sharing
+
+Custom implem evaluating only the polynom of two last shares.
+Create point to 0 to leak the secret.
+
+Create new share using ID 1256472.
+
+Get the secret.

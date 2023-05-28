@@ -1,0 +1,8 @@
+<project outputDir="C:\Users\Ooggle\source\repos\dothell\Confused" baseDir="C:\Users\Ooggle\source\repos\dothell\" xmlns="http://confuser.codeplex.com">
+  <packer id="compressor" />
+  <module path="dothell.exe">
+    <rule pattern="true" inherit="false">
+      <protection id="anti dump" />
+    </rule>
+  </module>
+</project>

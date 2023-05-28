@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS me Luigi</title>
+    <style> * { font-size: 30px; }</style>
+
+    <!-- Who really cares about beautiful front web application in CTF? -->
+</head>
+<body style="text-align: center;">
+    <h1>HTML Tester</h1>
+    <form method="GET" action="">
+        <textarea name="html" style="margin-bottom: 15px;">{{html | safe}}</textarea><br>
+        <input type="submit" value="Render" style="margin-bottom: 20px;">
+    </form>
+
+    <br>
+    <hr>
+    <br>
+
+    {{ html | safe }}
+
+    <div style="padding-top: 100px;">
+        <a href="/report">Report</a>
+    </div>
+</body>
+</html>

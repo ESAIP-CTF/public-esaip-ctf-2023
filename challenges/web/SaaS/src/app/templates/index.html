@@ -1,0 +1,51 @@
+{% include 'inc/header.html' %}
+<body style="background-image: url('{{ url_for('static', filename='img/browser.jpg') }}')">
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+        
+                    <h3 class="mb-5">Screenshot as a Service</h3>
+                    
+                    <div class="input-group">
+                        <form id="search-form" onsubmit="event.preventDefault(); screenshot(search.value)" style="width: 100%">
+                            <div class="form-outline">
+                                <input type="search" id="search" class="form-control" placeholder="prod.saas.esaip-cyber.org"/>
+                                <label class="form-label" for="search">Screen</label>
+                            </div>
+                        </form>
+                        <button type="submit" class="btn btn-primary" form="search-form">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+
+                    <div id="error"></div>
+
+                    <hr class="my-4">
+
+                    <img id="output" width="1080">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelectorAll('.form-outline').forEach((formOutline) => {
+            new mdb.Input(formOutline).init();
+        });
+
+        var screenshot = (url) => {
+            fetch(`/api/screen/${encodeURIComponent(url)}`).then(d => d.json()).then((d) => {
+                if (d["error"]) {
+                    error.innerHTML = `<div class="alert alert-danger mt-4" role="alert">
+                        ${d["error"]}
+                    </div>`;
+                } else {
+                    output.src = `data:image/png;base64,${d["data"]}`;
+                }
+            })
+        }
+    </script>
+</body>
+</html>

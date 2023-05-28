@@ -1,0 +1,6 @@
+.bot-chat {
+    position: fixed;
+    bottom: -50px;
+    right: 10px;
+    width: 450px;
+}

@@ -1,0 +1,43 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "XSS me Luigi"
+author: "Mizu"
+category: "World 3"
+description: "Another simple XSS challenge... Or maybe not that simple 👀
+
+
+https://xss-me-luigi.esaip-cyber.com
+
+
+**Author: Mizu**"
+
+value: 500
+type: dynamic
+
+# The extra field provides additional fields for data during the install/sync commands/
+# Fields in extra can be used to supply additional information for other challenge types
+# For example the follow extra field is for dynamic challenges. To use these following
+# extra fields, set the type to "dynamic" and uncomment the "extra" section below
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries of CTFd API data
+flags:
+    # A static case sensitive flag
+    - ECTF{T4k3_c4R3_0f_Server_S1d3_HTML_S4nitizeR_C0nteXt}
+
+# Tags are used to provide additional public tagging to a challenge
+# Can be removed if unused
+# Accepts strings
+tags:
+    - world3
+    - web
+
+files:
+    - dist/xss_me_luigi.zip

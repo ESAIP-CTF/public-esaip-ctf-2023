@@ -1,0 +1,64 @@
+door_locker:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000401000 <correct>:
+  401000:       63 6f 72 72 65 63 74 0a 00                          correct..
+
+0000000000401009 <incorrect>:
+  401009:       69 6e 63 6f 72 72 65 63 74 0a 00                    incorrect..
+
+0000000000401014 <_start>:
+  401014:       48 83 ec 28             sub    rsp,0x28
+  401018:       b8 00 00 00 00          mov    eax,0x0
+  40101d:       bf 00 00 00 00          mov    edi,0x0
+  401022:       54                      push   rsp
+  401023:       5e                      pop    rsi
+  401024:       ba 04 00 00 00          mov    edx,0x4
+  401029:       0f 05                   syscall 
+  40102b:       41 b8 00 00 00 00       mov    r8d,0x0
+  401031:       41 b1 4c                mov    r9b,0x4c
+  401034:       42 8a 14 04             mov    dl,BYTE PTR [rsp+r8*1]
+  401038:       44 30 ca                xor    dl,r9b
+  40103b:       80 fa 7d                cmp    dl,0x7d
+  40103e:       75 4d                   jne    40108d <print_incorrect>
+  401040:       49 83 c0 01             add    r8,0x1
+  401044:       42 8a 14 04             mov    dl,BYTE PTR [rsp+r8*1]
+  401048:       44 30 ca                xor    dl,r9b
+  40104b:       80 fa 75                cmp    dl,0x75
+  40104e:       75 3d                   jne    40108d <print_incorrect>
+  401050:       49 83 c0 01             add    r8,0x1
+  401054:       42 8a 14 04             mov    dl,BYTE PTR [rsp+r8*1]
+  401058:       44 30 ca                xor    dl,r9b
+  40105b:       80 fa 74                cmp    dl,0x74
+  40105e:       75 2d                   jne    40108d <print_incorrect>
+  401060:       49 83 c0 01             add    r8,0x1
+  401064:       42 8a 14 04             mov    dl,BYTE PTR [rsp+r8*1]
+  401068:       44 30 ca                xor    dl,r9b
+  40106b:       80 fa 7f                cmp    dl,0x7f
+  40106e:       75 1d                   jne    40108d <print_incorrect>
+
+0000000000401070 <print_correct>:
+  401070:       b8 01 00 00 00          mov    eax,0x1
+  401075:       48 be 00 10 40 00 00    movabs rsi,0x401000
+  40107c:       00 00 00
+  40107f:       bf 01 00 00 00          mov    edi,0x1
+  401084:       ba 09 00 00 00          mov    edx,0x9
+  401089:       0f 05                   syscall
+  40108b:       eb 1d                   jmp    4010aa <exit>
+
+000000000040108d <print_incorrect>:
+  40108d:       b8 01 00 00 00          mov    eax,0x1
+  401092:       48 be 09 10 40 00 00    movabs rsi,0x401009
+  401099:       00 00 00
+  40109c:       bf 01 00 00 00          mov    edi,0x1
+  4010a1:       ba 0b 00 00 00          mov    edx,0xb
+  4010a6:       0f 05                   syscall
+  4010a8:       eb 00                   jmp    4010aa <exit>
+
+00000000004010aa <exit>:
+  4010aa:       48 83 c4 40             add    rsp,0x40
+  4010ae:       b8 3c 00 00 00          mov    eax,0x3c
+  4010b3:       bf 00 00 00 00          mov    edi,0x0
+  4010b8:       0f 05                   syscall

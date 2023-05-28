@@ -1,0 +1,32 @@
+<section class="">
+    <div class="container py-5">
+
+        <div class="row d-flex justify-content-center">
+            <!-- Buttons trigger collapse -->
+            <a class="btn btn-lg btn-block text-white" style="background-color: #FF393A;" data-mdb-toggle="collapse" href="#chat_bot" onclick="chat_arrow.className === 'fas fa-chevron-up' ? chat_arrow.className = 'fas fa-chevron-down' : chat_arrow.className = 'fas fa-chevron-up'" role="button" aria-expanded="false" aria-controls="chat_bot">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Chat</span>
+                    <i id="chat_arrow" class="fas fa-chevron-up"></i>
+                </div>
+            </a>
+
+            <!-- Collapsed content -->
+            <div class="collapse mt-2" id="chat_bot">
+                <div class="card" id="chat4">
+                    <!-- Chat bot -->
+                    <div class="card-body" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
+                        <iframe id="bot" src="https://chat-give-me-a-switch.esaip-cyber.com/bot" width="380" height="360" frameBorder="0"></iframe>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer text-muted justify-content-start align-items-center p-3" style="position: relative; height: 250px">
+                        <button class="small p-2 me-3 mb-1 text-white rounded-3" style="width: 100%; background-color: #FF393A;" onclick="bot.contentWindow.postMessage({'action': 'ask', 'question': this.innerText}, '*');">What is the status of my order?</button>
+                        <button class="small p-2 me-3 mb-1 text-white rounded-3" style="width: 100%; background-color: #FF393A;" onclick="bot.contentWindow.postMessage({'action': 'ask', 'question': this.innerText}, '*');">How long will it take to receive my order?</button>
+                        <button class="small p-2 me-3 mb-1 text-white rounded-3" style="width: 100%; background-color: #FF393A;" onclick="bot.contentWindow.postMessage({'action': 'ask', 'question': this.innerText}, '*');">How do I obtain a refund or return an item I purchased from Nintendo?</button>
+                        <button class="small p-2 me-3 mb-1 text-white rounded-3" style="width: 100%; background-color: #FF393A;" onclick="bot.contentWindow.postMessage({'action': 'ask', 'question': this.innerText}, '*');">What is the condition of Authentic Nintendo Refurbished Products?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

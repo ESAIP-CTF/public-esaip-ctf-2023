@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  app-give-me-a-switch.esaip-cyber.com:
+    build: ./app/
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+  chat-give-me-a-switch.esaip-cyber.com:
+    build: ./chat/
+    ports:
+      - "3001:3001"
+  bot:
+    build: ./bot/
+    ports:
+      - "55555:55555"
+    env_file:
+      - .env

