@@ -1,8 +1,8 @@
 # ESAIP CTF 2023
 
-<center>
+<p align="center">
 <img src="./.github/logo.png" width="35%">
-</center>
+</p>
 
 <br>
 
